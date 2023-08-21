@@ -1,4 +1,4 @@
-package com.broadwayinfosys.contact_app.contact_app
+package com.ujwol.contactApp
 
 import io.flutter.embedding.android.FlutterActivity
 

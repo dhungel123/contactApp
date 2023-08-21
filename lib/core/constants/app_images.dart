@@ -4,6 +4,7 @@ class AppImages{
     'assets/b.jpg',
     'assets/c.jpg',
     'assets/d.jpg',
-    'assets/e.jpg'
+    'assets/e.jpg',
+    'assets/f.jpg'
   ];
 }

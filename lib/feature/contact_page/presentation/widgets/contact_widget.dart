@@ -3,14 +3,20 @@ import 'package:contact_app/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
 class ContactWidget extends StatelessWidget {
-  const ContactWidget({Key? key, required this.frnName, required this.frnContact, required this.frnFacebookLink, required this.images}) : super(key: key);
+  const ContactWidget({Key? key,
+    required this.frnName,
+    required this.frnContact,
+    required this.frnFacebookLink,
+    required this.images
+  }) : super(key: key);
   final String frnName;
   final String frnContact;
   final String frnFacebookLink;
   final String images;
 
-  get index => images.length;
+  //get index => images.length;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +29,7 @@ class ContactWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CircleAvatar(
-                  backgroundImage: AssetImage(AppImages.images[index])
+                  backgroundImage: AssetImage(images)
               ),
 
               Column(
@@ -82,11 +88,20 @@ class ContactWidget extends StatelessWidget {
       ),
     );
   }
-  Future<void> callingMethod(String url) async {
-    if (!await launchUrl(Uri.parse(url))) {
-      throw Exception('Could not launch $url');
+
+
+  Future<void> callingMethod(String phoneNumber) async {
+    final url = 'tel:$phoneNumber';
+
+    try {
+      if (!await launchUrl(Uri.parse(url))) {
+        throw Exception('Could not launch $url');
+      }
+    } catch (e) {
+      print('Error launching URL: $e');
     }
   }
+
   Future<void> callingMethod2(String url) async {
     if (!await launchUrl(Uri.parse(url))) {
       throw Exception('Could not launch $url');

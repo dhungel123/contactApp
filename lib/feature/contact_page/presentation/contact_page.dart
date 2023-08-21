@@ -1,5 +1,6 @@
 import 'package:contact_app/core/constants/app_images.dart';
 import 'package:contact_app/core/constants/app_strings.dart';
+import 'package:contact_app/feature/contact_page/presentation/widgets/contact_search.dart';
 import 'package:contact_app/feature/contact_page/presentation/widgets/contact_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,17 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar:AppBar(
+        leading: IconButton(onPressed: (){
+          showSearch(context: context, delegate: ContactSearch(
+              names:  AppStrings.frnName,
+              contacts: AppStrings.frnContact
+          ));
+        }, icon: Icon(Icons.search,color: Colors.white,size: 32,)),
+        actions: [
+
+          IconButton(onPressed: (){}, icon: Icon(Icons.notifications,color: Colors.white,size: 32,))
+          
+        ],
         title:  Text(AppStrings.myContacts,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 28),),
         centerTitle: true,
         backgroundColor: Colors.red,
