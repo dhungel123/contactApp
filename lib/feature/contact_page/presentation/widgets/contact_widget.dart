@@ -20,6 +20,21 @@ class ContactWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget image(){
+      return Dialog(
+        child: Container(
+          width: 200,
+          height: 200,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(images),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      );
+
+    }
     return  Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
@@ -28,9 +43,25 @@ class ContactWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CircleAvatar(
+              // InkWell(
+              //   onTap: ,
+              //   child: CircleAvatar(
+              //       backgroundImage: AssetImage(images)
+              //   ),
+              // ),
+              GestureDetector(
+              onTap: () async {
+        await showDialog(
+        context: context,
+        builder: (_) => image(),
+        );
+        },
+          child:CircleAvatar(
                   backgroundImage: AssetImage(images)
               ),
+          ),
+
+
 
               Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,3 +139,4 @@ class ContactWidget extends StatelessWidget {
     }
   }
 }
+
