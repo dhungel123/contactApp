@@ -1,5 +1,6 @@
 
 import 'package:contact_app/feature/contact_page/presentation/contact_page.dart';
+import 'package:contact_app/feature/onboard/onboard_screen.dart';
 import 'package:flutter/material.dart';
 
 void main(){

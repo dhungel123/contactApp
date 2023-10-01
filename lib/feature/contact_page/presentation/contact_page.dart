@@ -1,5 +1,6 @@
 import 'package:contact_app/core/constants/app_images.dart';
 import 'package:contact_app/core/constants/app_strings.dart';
+import 'package:contact_app/feature/contact_page/presentation/widgets/Add_contact.dart';
 import 'package:contact_app/feature/contact_page/presentation/widgets/contact_search.dart';
 import 'package:contact_app/feature/contact_page/presentation/widgets/contact_widget.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,15 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      floatingActionButton: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.lightGreen
+        ),
+          onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> AddContacts()));
+
+
+      }, child: Text('Add Contact', style: TextStyle(color: Colors.white),)),
       appBar:AppBar(
         leading: IconButton(onPressed: (){
           showSearch(context: context, delegate: ContactSearch(
